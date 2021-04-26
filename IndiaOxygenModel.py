@@ -63,7 +63,7 @@ OxyNeed_df['Oxygen Needed Daily(tonnes)'] = df['Oxygen Needed Daily(tonnes)']
 
 
 # Mapping the Oxygen Need data by state
-## Source for Basis of mapping and Geojson of mapping Script: https://gist.github.com/jbrobs
+## Source for Basis of mapping and Geojson of mapping Script: https://gist.githubusercontent.com/jbrobst
 fig = px.choropleth(
     OxyNeed_df,
     geojson="https://gist.githubusercontent.com/jbrobst/56c13bbbf9d97d187fea01ca62ea5112/raw/e388c4cae20aa53cb5090210a42ebb9b765c0a36/india_states.geojson",
