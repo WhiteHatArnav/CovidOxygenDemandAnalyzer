@@ -5,8 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import plotly.express as px
 
-
-# input variables
+# input variables (default declarations)
 MassOxProdDaily = 7100 #tonnes
 VolOxyReqPerson = 550 # liters
 nDailyCasesToday = 350000
@@ -14,8 +13,31 @@ rHosp = 0.060
 rOxSup = 0.04
 rICU = 0.02
 rLtoTn = 0.00114
+
+print("Please make sure that your current working directory has the table of new daily covid cases by state with the name StatewiseNewCases.csv")
+print("You are welcome to use the one I have includded in my repository if you want to rely on data from Late April in India")
+print("  ")
+
 df = pd.read_csv(r'StatewiseNewCases.csv')
 StateList= pd.read_csv('StateList.csv')
+
+# input variables (dynamic input)
+indic = (input("Would you like to enter your own data? Type Y/N: "))
+if indic == 'Y':
+    MassOxProdDaily =  float(input("Enter Daily National Oxygen Production in tonnes: "))
+    VolOxyReqPerson =  float(input("Enter Daily Anticipated Oxygen needed per person in liter (Human Avg is 500 to 550 liters): "))
+    nDailyCasesToday = float(input("Enter Daily number of cases you wish to analyze Oxygen demand for: "))
+    rOxSup = float(input("Enter proportion of patients that would need oxygen  support (typically 0.03 to 0.04): "))
+
+    # dynamic code based input of statewise data not included yet but can later be included for potential future use
+
+if indic == 'N':
+    print("\nScript will proceed with default values gathered on 26th of April, 2021 for India from online sources\n")
+
+else:
+    print("\nInvalid Input (user did not type Y or N). Script will proceed with default values gathered on 26th of April, 2021 for India from online sources\n")
+
+
 
 #initial formulations
 NewCases = df.loc[:,'New Cases'].astype(int)
