@@ -72,7 +72,7 @@ print(nPeopleBacklog)
 #Building sheet for Bar Chart
 BarChartdata = StateList
 BarChartdata['Oxygen Needed Daily(tonnes)'] = df['Oxygen Needed Daily(tonnes)']
-
+plt.ion()
 #BarChartOutput
 pl = BarChartdata.plot.bar(x="State")
 pl.set_title("Daily Oxygen Requirement for Covid Patients by State (India)")
@@ -83,6 +83,7 @@ OxyNeed_df = pd.DataFrame()
 OxyNeed_df['State'] = df['State']
 OxyNeed_df['Oxygen Needed Daily(tonnes)'] = df['Oxygen Needed Daily(tonnes)']
 
+print("\nMapping the Data...\n")
 
 # Mapping the Oxygen Need data by state
 ## Source for Basis of mapping and Geojson of mapping Script: https://gist.githubusercontent.com/jbrobst
