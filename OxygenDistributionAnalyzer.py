@@ -1,10 +1,11 @@
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import matplotlib.pyplot as plt
 
-
-OxyProd_df = pd.read_csv(r'OxygenProductionIndia.csv')
-OxyDemand_df = pd.read_csv(r'OxygenNeed.csv')
+OxyProd_df = pd.read_csv('OxygenProductionIndia.csv')
+OxyDemand_df = pd.read_csv('OxygenNeed.csv')
+StateList= pd.read_csv('StateList2.csv')
 
 
 OxySurplus = OxyProd_df['Oxygen Produced (Tonnes)'] - OxyDemand_df['Oxygen Needed Daily(tonnes)']
@@ -17,6 +18,7 @@ print(Output_df)
 
 # Mapping the Oxygen surplus data by state
 ## Source for Basis of mapping and Geojson of mapping Script: https://gist.githubusercontent.com/jbrobst
+
 
 
 
@@ -36,3 +38,9 @@ fig = px.choropleth(
 
 fig.update_geos(fitbounds="locations", visible=False)
 fig.show()
+
+Output_df['State'] = StateList['State']
+pl = Output_df.plot.bar(x="State")
+pl.set_title("Bar Chart of Expected Local Deficit and Surplus of Oxygen in Indian States")
+pl.get_figure().tight_layout()
+plt.show()
