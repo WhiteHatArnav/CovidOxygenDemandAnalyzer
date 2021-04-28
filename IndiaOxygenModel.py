@@ -72,7 +72,7 @@ print(nPeopleBacklog)
 #Building sheet for Bar Chart
 BarChartdata = StateList
 BarChartdata['Oxygen Needed Daily(tonnes)'] = df['Oxygen Needed Daily(tonnes)']
-plt.ion()
+
 #BarChartOutput
 pl = BarChartdata.plot.bar(x="State")
 pl.set_title("Daily Oxygen Requirement for Covid Patients by State (India)")
