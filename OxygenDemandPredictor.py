@@ -76,8 +76,6 @@ for a in range(10,20):
         newCaselist[a] = newCaselist[a-1]
 
 
-
-
 massOxSupNeed = [0]*20
 for p in range(0,20):
     nDailyOxSupNeed = int(rOxSup * newCaselist[p])
@@ -113,6 +111,12 @@ plt.xlabel('Days from April 26th, 2021')
 plt.ylabel('Oxygen Demand in India(Tonnes)')
 plt.xticks(np.arange(1, 18, 1))
 plt.show()
+
+
+
+
+
+
 
 
 
